@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="blocks/header :: common_header(~{::title})">
+    <title>Статьи. Добавление новой статьи</title>
+</head>
+<body>
+    <div class="container py-3">
+        <div th:insert="blocks/header :: headline"></div>
+
+        <main>
+            <h1>Добавление новой статьи</h1>
+            <form method="post" th:action="@{/article/add}">
+                <p>Тема статьи:
+                    <select name="selectedTopic" class="form-control">
+                        <option th:each="el : ${topics}" th:value="${el.id}"><spin th:text="${el.name}"></spin></option>
+                    </select>
+                </p>
+                <p>Название статьи:
+                    <input type="text" name="titleArticle" placeholder="Заголовок статьи" class="form-control">
+                </p>
+                <p>Содержимое статьи:
+                    <textarea name="textArticle" placeholder="Содержимое статьи" class="form-control"></textarea>
+                </p>
+                <p><button type="submit" class="btn btn-success">Добавить</button></p>
+            </form>
+        </main>
+
+        <div th:insert="blocks/footer :: footer"></div>
+    </div>
+</body>
+</html>

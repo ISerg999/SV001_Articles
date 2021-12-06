@@ -47,7 +47,7 @@ public class ArticlesService extends BaseModule {
    */
   public Long addArticle(Long idUser, Long idTopic, String title, String text) {
     List<Articles> articles = articlesRepository.filterByAuthorAndTitle(idUser, title);
-    if (null != articles) {
+    if (!(null == articles || articles.isEmpty())) {
       for (Articles el: articles) {
         if (idTopic == el.getTopic().getId() && text.equals(el.getArticle())) return el.getId();
         else {
