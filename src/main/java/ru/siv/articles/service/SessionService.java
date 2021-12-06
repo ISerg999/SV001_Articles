@@ -19,12 +19,12 @@ public class SessionService {
    * Возвращает статус текущего пользователя.
    * @return статус текущего пользователя (-1 - гость, 0 - админ, больше 0 - автор статей)
    */
-  public long getUserStatus() {
-    long idUser;
+  public Long getUserStatus() {
+    Long idUser;
     try {
       idUser = Long.parseLong((String) session.getAttribute(nameSessionAuthor));
     } catch (NumberFormatException e) {
-      idUser = -1;
+      idUser = -1L;
     }
     return idUser;
   }
