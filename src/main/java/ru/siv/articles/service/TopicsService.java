@@ -8,7 +8,7 @@ import ru.siv.articles.repository.TopicsRepository;
 import java.util.List;
 
 @Component
-public class TopicsService extends BaseService {
+public class TopicsService extends BaseModule {
 
   @Autowired
   private TopicsRepository topicsRepository;

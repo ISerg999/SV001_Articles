@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class TheAuthorsService extends BaseService {
+public class TheAuthorsService extends BaseModule {
 
   @Value("${session.nameAdmin}")
   private String nameAdmin;
@@ -23,7 +23,7 @@ public class TheAuthorsService extends BaseService {
   private String nameGuest;
 
   @Autowired
-  private TheAuthorsRepository authorsRepository;
+  protected TheAuthorsRepository authorsRepository;
 
   /**
    * Получение объекта автора по его ключу.
